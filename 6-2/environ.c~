@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+
+void print_usage (void);
+void print_version (void);
+void *xcalloc (int nr_elements, int size_per_element);
+
+int main (int argc, char *argv[])
+{
+	char tok[2] = "=";
+
+	static struct option opts[] = 
+	{
+		{"help", no_argument, 0, 'h'},
+		{"version", no_argument, 0, 'v'},
+		{"env", required_argument, 0, 'e'},
+		{0,0,0,0}
+	};
+
+	while ((ret = getopt_long (argc, argv, "hve:", opts, NULL)) != -1 )
+	{
+		switch (ret)
+		{
+			case 'h':	
+				print_usage ();
+				exit (EXIT_SUCCESS);
+				break;
+			case 'v':
+				print_usage ();
+				exit (EXIT_SUCCESS);
+				break;
+			case 'e':	
+				e_len = strlen (optarg);
+				
+		}
+	}
+}
